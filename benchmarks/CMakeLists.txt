@@ -12,4 +12,4 @@ function(add_benchmark name)
     endif()
 endfunction()
 
-add_benchmark(string_benchmark)
+add_benchmark(bench_aliasing_model)
