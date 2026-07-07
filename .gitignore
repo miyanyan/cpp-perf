@@ -1,0 +1,21 @@
+# Build artifacts
+/build/
+/out/
+/out-*/
+
+# vcpkg installed manifest baseline (per-user)
+vcpkg_installed/
+
+# IDE / editor
+.vs/
+.vscode/
+*.user
+CMakeUserPresets.json
+compile_commands.json
+
+# Object / temp files
+*.o
+*.obj
+*.pdb
+*.ilk
+*.exp

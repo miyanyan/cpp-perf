@@ -1,0 +1,83 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 21,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "base",
+            "hidden": true,
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "generator": "Ninja",
+            "cacheVariables": {
+                "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_BUILD_TYPE": "Release"
+            }
+        },
+        {
+            "name": "msvc",
+            "inherits": "base",
+            "displayName": "MSVC (Ninja)",
+            "description": "MSVC cl with Ninja. Run from 'x64 Native Tools Command Prompt for VS' so cl.exe/mt.exe/link.exe are on PATH. vcpkg default triplet (x64-windows).",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "clang-cl",
+            "inherits": "base",
+            "displayName": "Clang (Ninja + clang-cl)",
+            "description": "Standalone LLVM clang-cl with Ninja. Run from 'x64 Native Tools Command Prompt for VS' so mt.exe/link.exe are on PATH.",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            },
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "clang-cl",
+                "CMAKE_CXX_COMPILER": "clang-cl"
+            }
+        },
+        {
+            "name": "gcc",
+            "inherits": "base",
+            "displayName": "GCC (Ninja)",
+            "description": "GCC with Ninja on Linux. vcpkg default triplet (x64-linux).",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            },
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "gcc",
+                "CMAKE_CXX_COMPILER": "g++"
+            }
+        },
+        {
+            "name": "clang",
+            "inherits": "base",
+            "displayName": "Clang (Ninja)",
+            "description": "LLVM clang with Ninja on Linux. vcpkg default triplet (x64-linux).",
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Linux"
+            },
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "clang",
+                "CMAKE_CXX_COMPILER": "clang++"
+            }
+        }
+    ],
+    "buildPresets": [
+        { "name": "msvc", "configurePreset": "msvc" },
+        { "name": "clang-cl", "configurePreset": "clang-cl" },
+        { "name": "gcc", "configurePreset": "gcc" },
+        { "name": "clang", "configurePreset": "clang" }
+    ]
+}
