@@ -57,12 +57,6 @@ jobs:
         with:
           cache: true
 
-      - name: Setup MSVC dev environment
-        if: matrix.preset == 'msvc'
-        uses: ilammy/msvc-dev-shell@v1
-        with:
-          arch: x64
-
       - name: Restore vcpkg binary cache
         uses: actions/cache@v4
         with:
