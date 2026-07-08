@@ -23,9 +23,6 @@ gxx = ">=12"
 clang = ">=16"
 clangxx = ">=16"
 
-[target.win-64.dependencies]
-cxx-compiler = "*"
-
 [tasks]
 clean = "cmake -E rm -rf build"
 format = "clang-format -i benchmarks/*.cpp benchmarks/*.h"
