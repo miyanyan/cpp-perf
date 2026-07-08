@@ -1,0 +1,199 @@
+name: bench
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+  checks: write
+  deployments: write
+
+jobs:
+  bench:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - preset: gcc
+            os: ubuntu-latest
+            key: gcc-x64
+            vcpkg_root: /usr/local/vcpkg
+            exe: ""
+          - preset: clang
+            os: ubuntu-latest
+            key: clang-x64
+            vcpkg_root: /usr/local/vcpkg
+            exe: ""
+          - preset: gcc
+            os: ubuntu-24.04-arm
+            key: gcc-arm64
+            vcpkg_root: /usr/local/vcpkg
+            exe: ""
+          - preset: clang
+            os: ubuntu-24.04-arm
+            key: clang-arm64
+            vcpkg_root: /usr/local/vcpkg
+            exe: ""
+          - preset: msvc
+            os: windows-latest
+            key: msvc-x64
+            vcpkg_root: C:\vcpkg
+            exe: .exe
+
+    runs-on: ${{ matrix.os }}
+    concurrency:
+      group: bench-${{ matrix.key }}-${{ github.ref }}
+      cancel-in-progress: false
+    env:
+      VCPKG_ROOT: ${{ matrix.vcpkg_root }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: prefix-dev/setup-pixi@v0.8.4
+        with:
+          cache: true
+
+      - name: Restore vcpkg binary cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.local/share/vcpkg
+            ~/AppData/Local/vcpkg
+          key: vcpkg-${{ matrix.key }}-${{ hashFiles('vcpkg.json') }}
+          restore-keys: |
+            vcpkg-${{ matrix.key }}-
+
+      - name: Configure
+        shell: bash
+        run: pixi run cmake --preset ${{ matrix.preset }}
+
+      - name: Build
+        shell: bash
+        run: pixi run cmake --build --preset ${{ matrix.preset }}
+
+      - name: Run benchmarks
+        shell: bash
+        run: |
+          mkdir -p results
+          for exe in ./build/${{ matrix.preset }}/bin/bench_*${{ matrix.exe }}; do
+            name=$(basename "$exe" "${{ matrix.exe }}")
+            pixi run "$exe" \
+              --benchmark_format=json \
+              --benchmark_repetitions=8 \
+              --benchmark_enable_random_interleaving=true \
+              --benchmark_report_aggregates_only=true > "results/${name}.json"
+          done
+
+      - name: Merge benchmark JSONs
+        shell: bash
+        run: pixi run python tools/merge_benchmarks.py results results/merged.json
+
+      - name: Compare (PR only)
+        if: github.event_name == 'pull_request'
+        uses: benchmark-action/github-action-benchmark@v1.22.1
+        with:
+          tool: googlecpp
+          output-file-path: results/merged.json
+          gh-pages-branch: gh-pages
+          benchmark-data-dir-path: dev/bench/${{ matrix.key }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          comment-always: true
+          summary-always: true
+          alert-threshold: '200%'
+          fail-on-alert: false
+          auto-push: false
+          save-data-file: false
+          name: cpp-perf (${{ matrix.key }})
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bench-${{ matrix.key }}
+          path: results/merged.json
+
+  publish:
+    needs: bench
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: bench-publish
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          path: results
+
+      - name: Publish gcc-x64 results
+        uses: benchmark-action/github-action-benchmark@v1.22.1
+        with:
+          tool: googlecpp
+          output-file-path: results/bench-gcc-x64/merged.json
+          gh-pages-branch: gh-pages
+          benchmark-data-dir-path: dev/bench/gcc-x64
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: true
+          save-data-file: true
+          alert-threshold: '200%'
+          fail-on-alert: false
+          name: cpp-perf (gcc-x64)
+
+      - name: Publish clang-x64 results
+        uses: benchmark-action/github-action-benchmark@v1.22.1
+        with:
+          tool: googlecpp
+          output-file-path: results/bench-clang-x64/merged.json
+          gh-pages-branch: gh-pages
+          benchmark-data-dir-path: dev/bench/clang-x64
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: true
+          save-data-file: true
+          alert-threshold: '200%'
+          fail-on-alert: false
+          name: cpp-perf (clang-x64)
+
+      - name: Publish gcc-arm64 results
+        uses: benchmark-action/github-action-benchmark@v1.22.1
+        with:
+          tool: googlecpp
+          output-file-path: results/bench-gcc-arm64/merged.json
+          gh-pages-branch: gh-pages
+          benchmark-data-dir-path: dev/bench/gcc-arm64
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: true
+          save-data-file: true
+          alert-threshold: '200%'
+          fail-on-alert: false
+          name: cpp-perf (gcc-arm64)
+
+      - name: Publish clang-arm64 results
+        uses: benchmark-action/github-action-benchmark@v1.22.1
+        with:
+          tool: googlecpp
+          output-file-path: results/bench-clang-arm64/merged.json
+          gh-pages-branch: gh-pages
+          benchmark-data-dir-path: dev/bench/clang-arm64
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: true
+          save-data-file: true
+          alert-threshold: '200%'
+          fail-on-alert: false
+          name: cpp-perf (clang-arm64)
+
+      - name: Publish msvc-x64 results
+        uses: benchmark-action/github-action-benchmark@v1.22.1
+        with:
+          tool: googlecpp
+          output-file-path: results/bench-msvc-x64/merged.json
+          gh-pages-branch: gh-pages
+          benchmark-data-dir-path: dev/bench/msvc-x64
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: true
+          save-data-file: true
+          alert-threshold: '200%'
+          fail-on-alert: false
+          name: cpp-perf (msvc-x64)

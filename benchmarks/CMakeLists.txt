@@ -1,6 +1,8 @@
-# Helper to add a benchmark executable from <name>.cpp
-function(add_benchmark name)
-    add_executable(${name} ${name}.cpp)
+file(GLOB_RECURSE bench_sources CONFIGURE_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/bench_*.cpp)
+
+foreach(src IN LISTS bench_sources)
+    get_filename_component(name ${src} NAME_WE)
+    add_executable(${name} ${src})
     target_compile_features(${name} PRIVATE cxx_std_20)
     target_link_libraries(${name} PRIVATE benchmark::benchmark)
 
@@ -10,6 +12,19 @@ function(add_benchmark name)
     else()
         target_compile_options(${name} PRIVATE -Wall -Wextra -Wpedantic)
     endif()
-endfunction()
+endforeach()
 
-add_benchmark(bench_aliasing_model)
+add_custom_target(run_benchmarks
+    COMMAND ${CMAKE_COMMAND} -E echo "Running all benchmarks..."
+)
+foreach(src IN LISTS bench_sources)
+    get_filename_component(name ${src} NAME_WE)
+    add_dependencies(run_benchmarks ${name})
+    add_custom_command(
+        TARGET run_benchmarks
+        POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E echo "-- ${name} --"
+        COMMAND $<TARGET_FILE:${name}>
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    )
+endforeach()

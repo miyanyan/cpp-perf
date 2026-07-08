@@ -1,0 +1,46 @@
+[workspace]
+name = "cpp-perf"
+version = "0.1.0"
+description = "C++ performance micro-benchmarks (Google Benchmark + vcpkg)"
+channels = ["conda-forge"]
+platforms = ["linux-64", "linux-aarch64", "win-64"]
+
+[dependencies]
+cmake = ">=3.21"
+ninja = ">=1.11"
+clang-format = "*"
+python = ">=3.11"
+
+[target.linux-64.dependencies]
+gcc = ">=12"
+gxx = ">=12"
+clang = ">=16"
+clangxx = ">=16"
+
+[target.linux-aarch64.dependencies]
+gcc = ">=12"
+gxx = ">=12"
+clang = ">=16"
+clangxx = ">=16"
+
+[target.win-64.dependencies]
+cxx-compiler = "*"
+
+[tasks]
+clean = "cmake -E rm -rf build"
+format = "clang-format -i benchmarks/*.cpp benchmarks/*.h"
+
+[target.linux-64.tasks]
+configure = "cmake --preset gcc"
+build = "cmake --build --preset gcc"
+bench = "cmake --build --preset gcc --target run_benchmarks"
+
+[target.linux-aarch64.tasks]
+configure = "cmake --preset gcc"
+build = "cmake --build --preset gcc"
+bench = "cmake --build --preset gcc --target run_benchmarks"
+
+[target.win-64.tasks]
+configure = "cmake --preset msvc"
+build = "cmake --build --preset msvc"
+bench = "cmake --build --preset msvc --target run_benchmarks"
