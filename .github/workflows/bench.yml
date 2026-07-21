@@ -92,7 +92,7 @@ jobs:
           tool: googlecpp
           output-file-path: results/merged.json
           gh-pages-branch: gh-pages
-          benchmark-data-dir-path: dev/bench/${{ matrix.key }}
+          benchmark-data-dir-path: .
           github-token: ${{ secrets.GITHUB_TOKEN }}
           comment-always: true
           summary-always: true
@@ -127,7 +127,7 @@ jobs:
           tool: googlecpp
           output-file-path: results/bench-gcc-x64/merged.json
           gh-pages-branch: gh-pages
-          benchmark-data-dir-path: dev/bench/gcc-x64
+          benchmark-data-dir-path: .
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: true
           save-data-file: true
@@ -141,7 +141,7 @@ jobs:
           tool: googlecpp
           output-file-path: results/bench-clang-x64/merged.json
           gh-pages-branch: gh-pages
-          benchmark-data-dir-path: dev/bench/clang-x64
+          benchmark-data-dir-path: .
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: true
           save-data-file: true
@@ -155,7 +155,7 @@ jobs:
           tool: googlecpp
           output-file-path: results/bench-gcc-arm64/merged.json
           gh-pages-branch: gh-pages
-          benchmark-data-dir-path: dev/bench/gcc-arm64
+          benchmark-data-dir-path: .
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: true
           save-data-file: true
@@ -169,7 +169,7 @@ jobs:
           tool: googlecpp
           output-file-path: results/bench-clang-arm64/merged.json
           gh-pages-branch: gh-pages
-          benchmark-data-dir-path: dev/bench/clang-arm64
+          benchmark-data-dir-path: .
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: true
           save-data-file: true
@@ -183,7 +183,7 @@ jobs:
           tool: googlecpp
           output-file-path: results/bench-msvc-x64/merged.json
           gh-pages-branch: gh-pages
-          benchmark-data-dir-path: dev/bench/msvc-x64
+          benchmark-data-dir-path: .
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-push: true
           save-data-file: true
