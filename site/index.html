@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cross-platform C++ benchmark results and history.">
+  <title>cpp-perf benchmarks</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-header__inner">
+      <a class="brand" href="./" aria-label="cpp-perf benchmark dashboard">
+        <span class="brand__mark" aria-hidden="true">C++</span>
+        <span>cpp-perf</span>
+      </a>
+      <div class="header-actions">
+        <span id="last-update" class="last-update"></span>
+        <a id="repository-link" class="text-link" rel="noopener" target="_blank">Repository</a>
+        <button id="download-button" class="text-button" type="button">Download JSON</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="overview" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Continuous performance</p>
+        <h1 id="page-title">Benchmark dashboard</h1>
+        <p class="overview__copy">Latest comparisons and commit history across every published platform and benchmark case.</p>
+      </div>
+      <dl class="summary" aria-label="Benchmark summary">
+        <div><dt>Platforms</dt><dd id="platform-count">0</dd></div>
+        <div><dt>Cases</dt><dd id="case-count">0</dd></div>
+        <div><dt>Runs</dt><dd id="run-count">0</dd></div>
+      </dl>
+    </section>
+
+    <nav id="platform-tabs" class="platform-tabs" aria-label="Platforms"></nav>
+
+    <div class="workspace">
+      <aside class="case-panel" aria-labelledby="case-panel-title">
+        <div class="case-panel__header">
+          <h2 id="case-panel-title">Cases</h2>
+          <span id="visible-case-count" class="count"></span>
+        </div>
+        <label class="search-field">
+          <span class="sr-only">Filter benchmark cases</span>
+          <input id="case-search" type="search" placeholder="Filter cases" autocomplete="off">
+        </label>
+        <nav id="case-list" class="case-list" aria-label="Benchmark cases"></nav>
+      </aside>
+
+      <section class="results" aria-labelledby="case-title">
+        <div class="mobile-case-control control">
+          <label for="mobile-case-select">Case</label>
+          <select id="mobile-case-select"></select>
+        </div>
+
+        <div class="toolbar" aria-label="Chart controls">
+          <div class="control">
+            <label for="metric-select">Statistic</label>
+            <select id="metric-select"></select>
+          </div>
+
+          <fieldset class="segmented-control">
+            <legend>View</legend>
+            <div>
+              <button type="button" data-view="latest">Latest</button>
+              <button type="button" data-view="history">History</button>
+            </div>
+          </fieldset>
+
+          <div id="parameter-control" class="control" hidden>
+            <label for="parameter-select">Parameter</label>
+            <select id="parameter-select"></select>
+          </div>
+
+          <fieldset class="segmented-control">
+            <legend>Y scale</legend>
+            <div>
+              <button type="button" data-scale="linear">Linear</button>
+              <button type="button" data-scale="logarithmic">Log</button>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="case-heading">
+          <div>
+            <p id="case-path" class="case-path"></p>
+            <h2 id="case-title">Benchmark case</h2>
+          </div>
+          <p id="case-meta" class="case-meta"></p>
+        </div>
+
+        <div class="chart-region">
+          <div id="chart-empty" class="empty-state" hidden></div>
+          <canvas id="benchmark-chart" aria-label="Benchmark chart" role="img"></canvas>
+        </div>
+
+        <section class="table-section" aria-labelledby="table-title">
+          <div class="table-heading">
+            <h3 id="table-title">Latest values</h3>
+            <span id="commit-label" class="commit-label"></span>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Series</th>
+                  <th scope="col">Parameter</th>
+                  <th scope="col">Value</th>
+                  <th scope="col">Change</th>
+                </tr>
+              </thead>
+              <tbody id="results-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <span>Data published by GitHub Actions.</span>
+    <a href="https://github.com/benchmark-action/github-action-benchmark" rel="noopener" target="_blank">github-action-benchmark</a>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
