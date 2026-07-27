@@ -6,9 +6,12 @@ foreach(src IN LISTS bench_sources)
     target_compile_features(${name} PRIVATE cxx_std_20)
     target_link_libraries(${name} PRIVATE benchmark::benchmark)
 
-    if(MSVC)
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
         target_compile_options(${name} PRIVATE
             /W4 /permissive- /Zc:__cplusplus /Zc:preprocessor)
+    elseif(CMAKE_CXX_COMPILER_FRONTEND_VARIANT STREQUAL "MSVC")
+        target_compile_options(${name} PRIVATE
+            /W4 /permissive- /Zc:__cplusplus)
     else()
         target_compile_options(${name} PRIVATE -Wall -Wextra -Wpedantic)
     endif()

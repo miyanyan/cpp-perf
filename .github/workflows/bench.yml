@@ -38,6 +38,10 @@ jobs:
             os: windows-latest
             key: msvc-x64
             exe: .exe
+          - preset: clang-cl
+            os: windows-latest
+            key: clang-cl-x64
+            exe: .exe
 
     runs-on: ${{ matrix.os }}
     concurrency:
@@ -190,6 +194,20 @@ jobs:
           alert-threshold: '200%'
           fail-on-alert: false
           name: cpp-perf (msvc-x64)
+
+      - name: Publish clang-cl-x64 results
+        uses: benchmark-action/github-action-benchmark@v1.22.1
+        with:
+          tool: googlecpp
+          output-file-path: results/bench-clang-cl-x64/merged.json
+          gh-pages-branch: gh-pages
+          benchmark-data-dir-path: .
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          auto-push: true
+          save-data-file: true
+          alert-threshold: '200%'
+          fail-on-alert: false
+          name: cpp-perf (clang-cl-x64)
 
       - name: Publish benchmark dashboard
         shell: bash
