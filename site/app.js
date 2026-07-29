@@ -115,6 +115,12 @@
       .filter((bench) => bench.caseName === caseName && bench.metric === metric);
   }
 
+  function sourceForCase(sources, caseName) {
+    const path = sources?.cases?.[caseName];
+    const source = path ? sources?.files?.[path] : null;
+    return path && typeof source === "string" ? { path, source } : null;
+  }
+
   function keyedPoints(points) {
     return new Map(points.map((point) => [`${point.series}\u0000${point.parameter}`, point]));
   }
@@ -171,7 +177,7 @@
     }
   }
 
-  function createDashboard(data) {
+  function createDashboard(data, sources) {
     const catalog = buildCatalog(data);
     const state = initialState(data, catalog);
     let chart = null;
@@ -192,6 +198,11 @@
       resultsBody: document.getElementById("results-body"),
       commitLabel: document.getElementById("commit-label"),
       visibleCaseCount: document.getElementById("visible-case-count"),
+      sourcePath: document.getElementById("source-path"),
+      sourceLink: document.getElementById("source-link"),
+      sourceEmpty: document.getElementById("source-empty"),
+      sourceScroll: document.getElementById("source-scroll"),
+      sourceCode: document.getElementById("source-code"),
     };
 
     function selectedEntries() {
@@ -467,6 +478,35 @@
       }
     }
 
+    function renderSource() {
+      const selectedSource = sourceForCase(sources, state.caseName);
+      const commit = sources?.commit;
+      if (!selectedSource || !commit) {
+        elements.sourcePath.textContent = "";
+        elements.sourceLink.hidden = true;
+        elements.sourceEmpty.hidden = false;
+        elements.sourceScroll.hidden = true;
+        elements.sourceCode.textContent = "";
+        return;
+      }
+
+      const encodedPath = selectedSource.path
+        .split("/")
+        .map((part) => encodeURIComponent(part))
+        .join("/");
+      const repositoryUrl = String(data.repoUrl || "").replace(/\/$/, "");
+      elements.sourcePath.textContent =
+        `${selectedSource.path} @ ${String(commit).slice(0, 7)}`;
+      elements.sourceLink.href =
+        `${repositoryUrl}/blob/${encodeURIComponent(commit)}/${encodedPath}`;
+      elements.sourceLink.hidden = false;
+      elements.sourceEmpty.hidden = true;
+      elements.sourceScroll.hidden = false;
+      elements.sourceCode.textContent = selectedSource.source;
+      elements.sourceScroll.scrollTop = 0;
+      elements.sourceScroll.scrollLeft = 0;
+    }
+
     function renderAll() {
       renderHeader();
       renderPlatformTabs();
@@ -475,6 +515,7 @@
       renderCaseHeading();
       renderChart();
       renderTable();
+      renderSource();
       updateLocation(state);
     }
 
@@ -523,6 +564,7 @@
     naturalCompare,
     buildCatalog,
     pointsForEntry,
+    sourceForCase,
   };
   if (typeof module !== "undefined" && module.exports) {
     module.exports = exported;
@@ -536,7 +578,7 @@
         document.getElementById("chart-empty").textContent = "Benchmark data could not be loaded.";
         return;
       }
-      createDashboard(window.BENCHMARK_DATA);
+      createDashboard(window.BENCHMARK_DATA, window.BENCHMARK_SOURCES);
     });
   }
 })();
