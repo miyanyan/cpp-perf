@@ -20,6 +20,10 @@ compile_commands.json
 *.ilk
 *.exp
 
+# Python
+__pycache__/
+*.py[cod]
+
 # pixi
 .pixi/
 .pixienvs/

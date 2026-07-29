@@ -89,6 +89,11 @@ jobs:
       - name: Merge benchmark JSONs
         run: pixi run python tools/merge_benchmarks.py results results/merged.json
 
+      - name: Build benchmark source manifest
+        run: >-
+          pixi run python tools/build_source_manifest.py
+          results . results/sources.js ${{ github.sha }}
+
       - name: Compare (PR only)
         if: github.event_name == 'pull_request'
         uses: benchmark-action/github-action-benchmark@v1.22.1
@@ -109,7 +114,9 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: bench-${{ matrix.key }}
-          path: results/merged.json
+          path: |
+            results/merged.json
+            results/sources.js
 
   publish:
     needs: bench
@@ -214,12 +221,13 @@ jobs:
         run: |
           git fetch origin gh-pages
           git worktree add --detach gh-pages-site origin/gh-pages
-          cp site/index.html site/styles.css site/app.js gh-pages-site/
+          cp site/index.html site/styles.css site/app.js \
+            results/bench-gcc-x64/sources.js gh-pages-site/
 
           cd gh-pages-site
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html styles.css app.js
+          git add index.html styles.css app.js sources.js
 
           if git diff --cached --quiet; then
             echo "Benchmark dashboard is already up to date"
