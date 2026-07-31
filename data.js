@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1785482806338,
+  "lastUpdate": 1785482808413,
   "repoUrl": "https://github.com/miyanyan/cpp-perf",
   "entries": {
     "cpp-perf (gcc-x64)": [
@@ -14786,6 +14786,966 @@ window.BENCHMARK_DATA = {
             "value": 0.0095501739400994,
             "unit": "ns/iter",
             "extra": "iterations: 8\ncpu: 0.009556366861941858 ns\nthreads: 1"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "email": "1138989048@qq.com",
+            "name": "miyanyan",
+            "username": "miyanyan"
+          },
+          "committer": {
+            "email": "1138989048@qq.com",
+            "name": "miyanyan",
+            "username": "miyanyan"
+          },
+          "distinct": true,
+          "id": "b78e446e456c63adc5c9ebf64c52514033a72683",
+          "message": "add loop dependency benchmark",
+          "timestamp": "2026-07-31T15:15:43+08:00",
+          "tree_id": "d8f5a491c58af2952640db8f071b9d51aeafc5b9",
+          "url": "https://github.com/miyanyan/cpp-perf/commit/b78e446e456c63adc5c9ebf64c52514033a72683"
+        },
+        "date": 1785482807810,
+        "tool": "googlecpp",
+        "benches": [
+          {
+            "name": "AccessPattern/local_static_mean",
+            "value": 0.31176238014160423,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.3117326218029015 ns\nthreads: 1"
+          },
+          {
+            "name": "AccessPattern/local_static_median",
+            "value": 0.3115399970555663,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.31151730279877593 ns\nthreads: 1"
+          },
+          {
+            "name": "AccessPattern/local_static_stddev",
+            "value": 0.0005363898407091997,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0005324473982441124 ns\nthreads: 1"
+          },
+          {
+            "name": "AccessPattern/local_static_cv",
+            "value": 0.0017205085503439134,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.001708025920305388 ns\nthreads: 1"
+          },
+          {
+            "name": "AccessPattern/global_access_mean",
+            "value": 0.31428161159743445,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.3142398330197807 ns\nthreads: 1"
+          },
+          {
+            "name": "AccessPattern/global_access_median",
+            "value": 0.3130731094614862,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.3130334183829191 ns\nthreads: 1"
+          },
+          {
+            "name": "AccessPattern/global_access_stddev",
+            "value": 0.0031743188682636803,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0031762706011743014 ns\nthreads: 1"
+          },
+          {
+            "name": "AccessPattern/global_access_cv",
+            "value": 0.010100237338510558,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.010107791143633792 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/65536_mean",
+            "value": 15410.724866275043,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 15409.538662421059 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/65536_median",
+            "value": 15374.206955892689,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 15373.334213872302 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/65536_stddev",
+            "value": 106.93001854413673,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 106.71417601403179 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/65536_cv",
+            "value": 0.0069386754660803315,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.006925202522400854 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/512_mean",
+            "value": 128.43123747182563,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 128.42141790965363 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/512_median",
+            "value": 128.14462435563746,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 128.13777406042576 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/512_stddev",
+            "value": 0.6991747897592668,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.7008838034784092 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/512_cv",
+            "value": 0.005443962103944122,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.005457686224672362 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/32768_mean",
+            "value": 7684.049160276901,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 7683.344992650355 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/32768_median",
+            "value": 7684.516410526305,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 7683.673385548622 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/32768_stddev",
+            "value": 5.437985553960716,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 5.324181323001125 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/32768_cv",
+            "value": 0.0007076979129796138,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0006929509644684793 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/64_mean",
+            "value": 16.861389583880307,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 16.860012216955987 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/64_median",
+            "value": 16.854783948832743,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 16.853609132405495 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/64_stddev",
+            "value": 0.021596470317337843,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.02186205437875539 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/64_cv",
+            "value": 0.0012808238733766244,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0012966808147842793 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/4096_mean",
+            "value": 969.4147758401225,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 969.318730198806 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/4096_median",
+            "value": 968.7130338539723,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 968.6060458488356 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/4096_stddev",
+            "value": 1.4409631342128637,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 1.45374332048576 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char*/4096_cv",
+            "value": 0.0014864258005187552,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0014997577939999146 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/32768_mean",
+            "value": 649.5508247763511,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 649.4899046811352 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/32768_median",
+            "value": 647.3065122490956,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 647.2538537524802 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/32768_stddev",
+            "value": 5.991137535048737,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 6.000915415309558 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/32768_cv",
+            "value": 0.009223508471583522,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.009239428314525825 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/4096_mean",
+            "value": 88.41635746016716,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 88.4091987924885 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/4096_median",
+            "value": 87.90433475264115,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 87.89638505994778 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/4096_stddev",
+            "value": 1.4593550961670496,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 1.45726381440762 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/4096_cv",
+            "value": 0.016505487650568616,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.01648316956053484 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/64_mean",
+            "value": 3.4328703735326793,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 3.432642203351651 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/64_median",
+            "value": 3.431064898555018,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 3.430772509720697 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/64_stddev",
+            "value": 0.004294614377964017,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.004327456515428462 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/64_cv",
+            "value": 0.0012510272485309543,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0012606780022698287 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/512_mean",
+            "value": 12.179648993556192,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 12.178720827158095 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/512_median",
+            "value": 12.16939842481714,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 12.16844219571134 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/512_stddev",
+            "value": 0.02757916711164362,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.027505005035784926 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/512_cv",
+            "value": 0.0022643646895107363,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0022584477816791552 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/65536_mean",
+            "value": 1291.5429027427372,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 1291.4171565062807 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/65536_median",
+            "value": 1290.4751995166846,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 1290.263783453242 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/65536_stddev",
+            "value": 5.09928316108318,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 5.1209130735459905 ns\nthreads: 1"
+          },
+          {
+            "name": "AliasingModel/char8_t*/65536_cv",
+            "value": 0.003948210431302186,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.003965343845516028 ns\nthreads: 1"
+          },
+          {
+            "name": "ApiShape/has_failure/4096_mean",
+            "value": 83028.25538652699,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 83015.09149698117 ns\nthreads: 1"
+          },
+          {
+            "name": "ApiShape/has_failure/4096_median",
+            "value": 83011.18385225377,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 82995.76701787615 ns\nthreads: 1"
+          },
+          {
+            "name": "ApiShape/has_failure/4096_stddev",
+            "value": 97.71194836911387,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 96.93739202776058 ns\nthreads: 1"
+          },
+          {
+            "name": "ApiShape/has_failure/4096_cv",
+            "value": 0.0011768517586480517,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0011677080670480944 ns\nthreads: 1"
+          },
+          {
+            "name": "ApiShape/has_value/4096_mean",
+            "value": 83165.247934253,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 83156.54158245155 ns\nthreads: 1"
+          },
+          {
+            "name": "ApiShape/has_value/4096_median",
+            "value": 83172.82386161115,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 83160.4471525384 ns\nthreads: 1"
+          },
+          {
+            "name": "ApiShape/has_value/4096_stddev",
+            "value": 46.929281347354085,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 45.214156412812954 ns\nthreads: 1"
+          },
+          {
+            "name": "ApiShape/has_value/4096_cv",
+            "value": 0.0005642895622033669,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0005437233866680485 ns\nthreads: 1"
+          },
+          {
+            "name": "BoundedBuffer/inplace_vector/32_mean",
+            "value": 13.077447983746055,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 13.076440851588274 ns\nthreads: 1"
+          },
+          {
+            "name": "BoundedBuffer/inplace_vector/32_median",
+            "value": 13.073422871552362,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 13.072843744523889 ns\nthreads: 1"
+          },
+          {
+            "name": "BoundedBuffer/inplace_vector/32_stddev",
+            "value": 0.011194766863188228,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.011157422823212481 ns\nthreads: 1"
+          },
+          {
+            "name": "BoundedBuffer/inplace_vector/32_cv",
+            "value": 0.0008560360459550053,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0008532461508329533 ns\nthreads: 1"
+          },
+          {
+            "name": "BoundedBuffer/std_vector/32_mean",
+            "value": 36.835981092704806,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 36.83358168955294 ns\nthreads: 1"
+          },
+          {
+            "name": "BoundedBuffer/std_vector/32_median",
+            "value": 36.78463042970763,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 36.78127480595225 ns\nthreads: 1"
+          },
+          {
+            "name": "BoundedBuffer/std_vector/32_stddev",
+            "value": 0.13866288987721645,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.13906790352787549 ns\nthreads: 1"
+          },
+          {
+            "name": "BoundedBuffer/std_vector/32_cv",
+            "value": 0.0037643327465133806,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0037755737332304867 ns\nthreads: 1"
+          },
+          {
+            "name": "LambdaClosure/value_capture/50000_mean",
+            "value": 1.5564771013884797,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 1.556383029302672 ns\nthreads: 1"
+          },
+          {
+            "name": "LambdaClosure/value_capture/50000_median",
+            "value": 1.5564891350958723,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 1.556412980721736 ns\nthreads: 1"
+          },
+          {
+            "name": "LambdaClosure/value_capture/50000_stddev",
+            "value": 0.0006429454640845997,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0006366317409359841 ns\nthreads: 1"
+          },
+          {
+            "name": "LambdaClosure/value_capture/50000_cv",
+            "value": 0.0004130773678013317,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.000409045671245351 ns\nthreads: 1"
+          },
+          {
+            "name": "LambdaClosure/ref_capture/50000_mean",
+            "value": 1.5568779133548125,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 1.556769405265715 ns\nthreads: 1"
+          },
+          {
+            "name": "LambdaClosure/ref_capture/50000_median",
+            "value": 1.5567752781533801,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 1.5566259482896636 ns\nthreads: 1"
+          },
+          {
+            "name": "LambdaClosure/ref_capture/50000_stddev",
+            "value": 0.00041390706490390173,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.00046043621736873585 ns\nthreads: 1"
+          },
+          {
+            "name": "LambdaClosure/ref_capture/50000_cv",
+            "value": 0.00026585711143656797,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.000295763917129491 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/4096_mean",
+            "value": 9695.21408233555,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 9691.711240242767 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/4096_median",
+            "value": 9688.677428539288,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 9687.206512680888 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/4096_stddev",
+            "value": 23.398525998273605,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 16.90878838892653 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/4096_cv",
+            "value": 0.002413409936032786,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0017446648966094234 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/16_mean",
+            "value": 79.85401589829705,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 79.84661828679947 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/16_median",
+            "value": 79.77450513965304,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 79.76859685479782 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/16_stddev",
+            "value": 0.21177014143937975,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.21128549946588726 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/16_cv",
+            "value": 0.002651966079064734,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0026461421159625713 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/64_mean",
+            "value": 100.74170341288338,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 100.73300637548418 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/64_median",
+            "value": 100.54494587964865,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 100.53636806232466 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/64_stddev",
+            "value": 0.5782694485673241,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.5775981921009515 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/64_cv",
+            "value": 0.005740119821056867,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.005733951689557874 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/512_mean",
+            "value": 2561.635075422203,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 2561.378136670856 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/512_median",
+            "value": 2554.661166675675,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 2554.331857681585 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/512_stddev",
+            "value": 16.256035512558807,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 16.300345876147812 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/512_cv",
+            "value": 0.006345960698511875,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.006363896701849007 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/16384_mean",
+            "value": 81899.48487856225,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 81893.17791043913 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/16384_median",
+            "value": 81711.67871321981,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 81701.41715319919 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/16384_stddev",
+            "value": 506.1726717871122,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 506.9273814939985 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/16384_cv",
+            "value": 0.006180413375464422,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.006190105139751564 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/16384_mean",
+            "value": 38778.38289779974,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 38774.03120323664 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/16384_median",
+            "value": 38784.73973285887,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 38780.25874300279 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/16384_stddev",
+            "value": 77.5601738593346,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 76.3191439731361 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/16384_cv",
+            "value": 0.002000087885658979,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0019683056314960977 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/16_mean",
+            "value": 25.557908498983213,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 25.555237071115744 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/16_median",
+            "value": 25.5235953558705,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 25.520749932576297 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/16_stddev",
+            "value": 0.11349412751559074,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.11353211235937295 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/16_cv",
+            "value": 0.004440665695321115,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.004442616284225147 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/4096_mean",
+            "value": 20433.306382497452,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 20431.124631343868 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/4096_median",
+            "value": 20430.591704140697,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 20429.22174852538 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/4096_stddev",
+            "value": 14.425057081479391,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 14.197938696930631 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/4096_cv",
+            "value": 0.0007059580476821635,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0006949171400554839 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/64_mean",
+            "value": 319.6188716059317,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 319.58816666423525 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/64_median",
+            "value": 319.0967620533384,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 319.08426762673264 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/64_stddev",
+            "value": 1.117280691732524,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 1.1175108560600453 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/stack/64_cv",
+            "value": 0.003495665591079537,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.003496721633107653 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/16_mean",
+            "value": 24.902781776102838,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 24.90037849855702 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/16_median",
+            "value": 24.899087362530476,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 24.89648774330204 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/16_stddev",
+            "value": 0.015711674762658,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.01610555655221565 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/16_cv",
+            "value": 0.0006309204692037742,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0006467996682519894 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/512_mean",
+            "value": 1197.4245996247303,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 1197.3006849098344 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/512_median",
+            "value": 1197.389887605881,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 1197.2780963979542 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/512_stddev",
+            "value": 0.9693187411968157,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 1.010360619690173 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/512_cv",
+            "value": 0.0008095029461567748,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0008438653985788547 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/4096_mean",
+            "value": 6392.840729263058,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 6392.42647200396 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/4096_median",
+            "value": 6383.445869128605,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 6383.297055075222 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/4096_stddev",
+            "value": 26.840276120284305,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 26.735479633571376 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/4096_cv",
+            "value": 0.004198489725768336,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.004182367955370486 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/64_mean",
+            "value": 137.34087354127732,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 137.32645052747958 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/64_median",
+            "value": 137.22777566450011,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 137.2113142534846 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/64_stddev",
+            "value": 0.3944371991606652,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.39129085191088664 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static_vector/64_cv",
+            "value": 0.002871957844669733,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0028493480346132426 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/512_mean",
+            "value": 802.6977866910362,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 802.6445730771405 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/512_median",
+            "value": 802.167173147727,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 802.1240750654268 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/512_stddev",
+            "value": 1.3323596008397778,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 1.3025135814126596 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/512_cv",
+            "value": 0.0016598520924446152,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0016227775345432724 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/16384_mean",
+            "value": 25559.66009906064,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 25557.121690399887 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/16384_median",
+            "value": 25504.570871876993,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 25501.84190399883 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/16384_stddev",
+            "value": 135.33767994310105,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 134.64490786555075 ns\nthreads: 1"
+          },
+          {
+            "name": "LookupTable/static/16384_cv",
+            "value": 0.0052949718196007994,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.005268390920411351 ns\nthreads: 1"
+          },
+          {
+            "name": "LoopCarriedDependency/split_sum/65536_mean",
+            "value": 15447.140530863104,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 15445.358878798572 ns\nthreads: 1"
+          },
+          {
+            "name": "LoopCarriedDependency/split_sum/65536_median",
+            "value": 15446.486747732331,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 15444.457539778874 ns\nthreads: 1"
+          },
+          {
+            "name": "LoopCarriedDependency/split_sum/65536_stddev",
+            "value": 17.687012203719675,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 18.123825499246884 ns\nthreads: 1"
+          },
+          {
+            "name": "LoopCarriedDependency/split_sum/65536_cv",
+            "value": 0.0011450023496828653,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.0011734156286989856 ns\nthreads: 1"
+          },
+          {
+            "name": "LoopCarriedDependency/single_sum/65536_mean",
+            "value": 61461.711653343475,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 61453.86409558115 ns\nthreads: 1"
+          },
+          {
+            "name": "LoopCarriedDependency/single_sum/65536_median",
+            "value": 61400.086093296595,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 61393.40384784331 ns\nthreads: 1"
+          },
+          {
+            "name": "LoopCarriedDependency/single_sum/65536_stddev",
+            "value": 208.60148525755667,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 209.04012969704854 ns\nthreads: 1"
+          },
+          {
+            "name": "LoopCarriedDependency/single_sum/65536_cv",
+            "value": 0.003394007092319709,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.003401578285979247 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/transparent/sso_mean",
+            "value": 43423.245288866594,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 43418.239090007446 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/transparent/sso_median",
+            "value": 43396.72185717781,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 43393.65261591867 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/transparent/sso_stddev",
+            "value": 107.13181190266421,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 107.20775772609859 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/transparent/sso_cv",
+            "value": 0.002467153507067148,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.002469187142846889 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/opaque/heap_mean",
+            "value": 65255.23767424429,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 65247.92057255126 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/opaque/heap_median",
+            "value": 65030.122930112964,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 65022.204088315164 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/opaque/heap_stddev",
+            "value": 670.4681639796446,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 671.8580914293648 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/opaque/heap_cv",
+            "value": 0.01027454941359095,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.010297003882021101 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/opaque/sso_mean",
+            "value": 49986.65440702807,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 49981.00612832812 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/opaque/sso_median",
+            "value": 49956.471049240055,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 49950.53639421696 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/opaque/sso_stddev",
+            "value": 92.68892869762716,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 93.50810885122053 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/opaque/sso_cv",
+            "value": 0.0018542735015407471,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.00187087287941213 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/transparent/heap_mean",
+            "value": 54183.53719649381,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 54178.407425723366 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/transparent/heap_median",
+            "value": 54134.834264215686,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 54131.82371421923 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/transparent/heap_stddev",
+            "value": 168.27947279136376,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 168.26531087917223 ns\nthreads: 1"
+          },
+          {
+            "name": "MapStringLookup/transparent/heap_cv",
+            "value": 0.0031057306609774647,
+            "unit": "ns/iter",
+            "extra": "iterations: 8\ncpu: 0.003105763326651081 ns\nthreads: 1"
           }
         ]
       }
